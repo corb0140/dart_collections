@@ -34,7 +34,27 @@ void main(List<String> arguments) async {
 
   collection.Students studentList = collection.Students(studentsList);
 
-  print(studentList.people);
   studentList.sort('first');
-  print(studentList.people);
+
+  studentList.output();
+
+  print("\n");
+
+  studentList.plus({
+    'first': capitalize(arguments[0]),
+    'last': capitalize(arguments[1]),
+    'email': capitalize(arguments[2]),
+  });
+
+  studentList.output();
+
+  print("\n");
+
+  studentList.remove('Adam');
+
+  studentList.output();
+}
+
+String capitalize(String name) {
+  return name[0].toUpperCase() + name.substring(1);
 }
